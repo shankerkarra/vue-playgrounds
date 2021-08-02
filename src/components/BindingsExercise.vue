@@ -37,7 +37,7 @@
           </p>
           <div class="red">
             <!-- add a class binding attribute to the p tag that references the state isActive value -->
-            <p>This text will turn green on active</p>
+            <p :class="{active: state.isActive}">This text will turn green on active</p>
           </div>
         </div>
       </div>
@@ -47,28 +47,28 @@
 
 
 <script>
-import { reactive } from "vue";
-export default {
-  name: "binding-exercises",
-  setup() {
-    const state = reactive({
-      //create a property called myName and set its value to "type your name here"
-      message: "Super secret message here!",
-      //change isActive to true
-      isActive: false,
-    });
-    return { state };
-  },
-};
+  import { reactive } from "vue";
+  export default {
+    name: "binding-exercises",
+    setup() {
+      const state = reactive({
+        //create a property called myName and set its value to "type your name here"
+        message: "Super secret message here!",
+        //change isActive to true
+        isActive: false,
+      });
+      return { state };
+    },
+  };
 </script>
 
 
 <style scoped>
-.red {
-  color: red;
-}
+  .red {
+    color: red;
+  }
 
-.active {
-  color: green;
-}
+  .active {
+    color: green;
+  }
 </style>

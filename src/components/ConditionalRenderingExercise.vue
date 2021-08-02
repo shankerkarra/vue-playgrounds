@@ -38,7 +38,7 @@
             toggle the value to true to get it to show up again.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+          <div v-if="showPlayer === true" class="player-card text-center">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -67,23 +67,23 @@
             to add another condition.
           </p>
           <!-- v-if comparing grade and 90 -->
-          <div>
+          <div v-if="grade === 90">
             <p>The grade is 'A'.</p>
           </div>
           <!-- v-else-if comparing grade and 80 -->
-          <div>
+          <div v-else-if="grade === 80">
             <p>The grade is 'B'.</p>
           </div>
           <!-- v-else-if comparing grade and 70 -->
-          <div>
+          <div v-else-if="grade === 70">
             <p>The grade is 'C'.</p>
           </div>
           <!-- v-else-if comparing grade and 60 -->
-          <div>
+          <div v-else-if="grade === 60">
             <p>The grade is 'D'.</p>
           </div>
           <!-- v-else to display if all the others fail -->
-          <div>
+          <div v-else>
             <p>The grade is 'F'.</p>
           </div>
         </div>
@@ -105,6 +105,9 @@
             </div>
             <div>
               <span>{{ state.player.number }}</span>
+            </div>
+            <div>
+              <span>{{ state.player.grade }}</span>
             </div>
           </div>
           <p>
@@ -135,6 +138,8 @@ export default {
         name: "D$",
         position: "WR",
         number: 4,
+        grade: 40,
+        showPlayer: false,
       },
     });
     return {
